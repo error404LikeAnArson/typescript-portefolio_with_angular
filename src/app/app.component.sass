@@ -1,0 +1,28 @@
+
+// @import "./assets/_mainVariables" 
+// @import "./assets/_globalVariables"
+// @import "./assets/_navVariables"
+
+// à virer
+//
+$navHeight: 60px
+//
+
+html
+    margin: 0
+
+body
+    margin: 0
+
+#container
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: $navHeight 1fr
+
+@media screen and ( max-width: 700px )
+    #container
+        grid-template-rows: ($navHeight * 2) 1fr
+
+@media screen and ( max-width: 445px )
+    #container
+        grid-template-rows: ($navHeight * 3) 1fr
