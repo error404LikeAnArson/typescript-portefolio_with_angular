@@ -1,0 +1,42 @@
+
+@import "assets/_mainVariables" 
+@import "assets/_globalVariables"
+@import "assets/_navVariables"
+ 
+
+$font-stack: Cambria, "Times New Roman", Arial, sans-serif
+$fontColorPrim: white
+$bg-img: url("./assets/images/coding.jpg")
+
+body
+    font-family: $font-stack
+    font-size: large
+    color: $fontColorPrim
+    background-color: black
+    background-image: $bg-img
+    background-repeat: no-repeat
+    background-size: 100vw
+    margin: 0
+    cursor: url("assets/images/cursor2.png"), auto
+
+// @media screen and ( max-width: 700px )
+//     background-size: 200vw
+
+// @media screen and ( min-width: 701px )
+//     background-size: 100vw
+    
+html
+    scrollbar-color: rgb(92, 0, 0, 0.9) rgba(165, 0, 0, 0.9)
+    scrollbar-width: thin
+
+html::-webkit-scrollbar 
+    width: 10px
+
+
+html::-webkit-scrollbar-track
+    background-color: rgb(92, 0, 0, 0.9)
+
+
+html::-webkit-scrollbar-thumb
+    background-color: rgba(165, 0, 0, 0.9)
+    border-radius: 25px
