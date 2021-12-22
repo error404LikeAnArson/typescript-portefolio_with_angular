@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-framework',
-    templateUrl: './framework.component.html',
-    styleUrls: ['./framework.component.sass']
+  selector: 'app-framework-en',
+  templateUrl: './framework-en.component.html',
+  styleUrls: ['./framework-en.component.sass']
 })
-export class FrameworkComponent implements OnInit {
+export class FrameworkENComponent implements OnInit {
 
     constructor() { }
 
@@ -64,4 +64,5 @@ export class FrameworkComponent implements OnInit {
         }
         return;
     }
+
 }

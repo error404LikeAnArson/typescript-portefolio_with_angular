@@ -1,8 +1,6 @@
 
 export class GlobalComponent {
 
-    // public closeNav: Boolean = false;
-    // public statNav: number = 0;
     public langFr: Boolean = true;
 
     page(): void {
@@ -26,9 +24,9 @@ export class GlobalComponent {
                 opacity: 1,
                 scale: 1
             }
-        ], 2000)
+        ], 1500)
         return;
-    }
+    } 
 
     animatePageAll(el: HTMLElement): void {
         let interval: any = null;

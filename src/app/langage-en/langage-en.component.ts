@@ -2,22 +2,14 @@ import { Component, OnInit, Injectable } from '@angular/core';
 
 @Injectable()
 
+
 @Component({
-    selector: 'app-langage',
-    templateUrl: './langage.component.html',
-    styleUrls: ['./langage.component.sass']
+  selector: 'app-langage-en',
+  templateUrl: './langage-en.component.html',
+  styleUrls: ['./langage-en.component.sass']
 })
+export class LangageENComponent implements OnInit {
 
-// @NgModule({
-//     providers: [
-//         {
-//             provider: animation-page,
-//             useClass: animation-page
-//         }
-//     ]
-// })
-
-export class LangageComponent implements OnInit {
     mobile: Boolean;
     checked: Boolean;
     previousIndex: number;
@@ -124,18 +116,4 @@ export class LangageComponent implements OnInit {
         return;
     }
 
-    // public frTranslate(): void {
-    //     let title1 = document.getElementById("title1") as HTMLElement;
-
-    //     title1.innerText = "LANGAGE";
-    //     return;
-    // }
-
-    // public enTranslate(): void {
-    //     let title1 = document.getElementById("title1") as HTMLElement;
-
-    //     title1.innerText = "LANGUAGE";
-    //     return;
-    // }
 }
-

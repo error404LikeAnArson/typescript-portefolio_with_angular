@@ -1,18 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-    selector: 'app-framework',
-    templateUrl: './framework.component.html',
-    styleUrls: ['./framework.component.sass']
+@Injectable({
+    providedIn: 'root'
 })
-export class FrameworkComponent implements OnInit {
+
+export class AnimationPageService {
 
     constructor() { }
-
-    ngOnInit(): void {
-        this.page();
-    }
-
 
     page(): void {
         let block = document.getElementsByClassName("block") as HTMLCollectionOf<HTMLElement>;
@@ -30,14 +24,6 @@ export class FrameworkComponent implements OnInit {
             {
                 opacity: 0,
                 scale: 0.1
-            },
-            {
-                opacity: 1,
-                scale: 1
-            },
-            {
-                opacity: 1,
-                scale: 1
             },
             {
                 opacity: 1,

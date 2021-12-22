@@ -15,6 +15,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { SkillsComponent } from './skills/skills.component';
 import { SandboxComponent } from './sandbox/sandbox.component';
 import { NavBoxComponent } from './nav-box/nav-box.component';
+import { LangageENComponent } from './langage-en/langage-en.component';
+import { PathwayENComponent } from './pathway-en/pathway-en.component';
+import { ProfileENComponent } from './profile-en/profile-en.component';
+import { ProjectsENComponent } from './projects-en/projects-en.component';
+import { SkillsENComponent } from './skills-en/skills-en.component';
+import { FrameworkENComponent } from './framework-en/framework-en.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,13 @@ import { NavBoxComponent } from './nav-box/nav-box.component';
     ProfileComponent,
     SkillsComponent,
     SandboxComponent,
-    NavBoxComponent
+    NavBoxComponent,
+    LangageENComponent,
+    PathwayENComponent,
+    ProfileENComponent,
+    ProjectsENComponent,
+    SkillsENComponent,
+    FrameworkENComponent
   ],
   imports: [
     BrowserModule,
