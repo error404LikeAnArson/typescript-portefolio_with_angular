@@ -14,50 +14,31 @@ export class NavBoxComponent implements OnInit {
     protected closeNav: Boolean;
     protected statNav: number;
     protected lang: Boolean;
-    protected oldValue: Boolean;
 
     constructor() {
         this.closeNav = false;
         this.statNav = 0;
         this.lang = true;
-        this.oldValue = true;
     }
 
     // @Output() langEvent: EventEmitter<Boolean> = new EventEmitter();
 
     ngOnInit(): void {
+        let test = window.location.pathname;
+        if (test.includes("-en")) {
+            this.lang = false;
+        }
     }
 
     ngOnChanges(): void { 
-        // if(this.oldValue !== this.lang){
-        //     this.addLangEvent();
-        // }
+        // this.addLangEvent();
     }
 
     // addLangEvent(): void {
-    //     console.log("nav box emit");
-    //     console.log(this.lang);
-    //     // this.langEvent.emit(this.lang);
+    //     this.langEvent.emit(this.lang);
     //     return;
     // }
 
-    private statChange(): void {
-        switch (this.statNav) {
-            case 0:
-                this.menuBar()
-                break;
-            case 1:
-                this.menuTerminal();
-                break;
-            case 2:
-                this.menuIcon();
-                break;
-            default:
-                console.error("error in menuForm switch");
-                break;
-        }
-        return;
-    }
 
     private closeChange(): void {
         let navBox = document.getElementsByClassName("navBox") as HTMLCollectionOf<HTMLElement>;
@@ -83,23 +64,7 @@ export class NavBoxComponent implements OnInit {
         return;
     }
 
-    private menuBar(): void {
-
-        return;
-    }
-
-    private menuTerminal(): void {
-
-        return;
-    }
-
-    private menuIcon(): void {
-
-        return;
-    }
-
     public setLangFr(langFr: Boolean): void {
-        this.oldValue = this.lang;
         this.lang = langFr;
         return;
     }
@@ -110,7 +75,6 @@ export class NavBoxComponent implements OnInit {
 
     public setStat(stat: number): void {
         this.statNav = stat;
-        this.statChange();
         return;
     }
 

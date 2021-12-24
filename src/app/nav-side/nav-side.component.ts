@@ -25,6 +25,11 @@ export class NavSideComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        let test = window.location.pathname;
+        if (test.includes("-en")) {
+            this.langFr = false;
+        }
+        this.addLangEvent();
     }
 
     addLangEvent(): void {
@@ -54,20 +59,14 @@ export class NavSideComponent implements OnInit {
     }
 
     langFR(): void {
-        let oldValue: Boolean = this.langFr;
         this.langFr = true;
-        if(this.langFr !== oldValue){
-            this.addLangEvent();
-        }
+        this.addLangEvent();
         return;
     }
 
     langEN(): void {
-        let oldValue: Boolean = this.langFr;
         this.langFr = false;
-        if(this.langFr !== oldValue){
-            this.addLangEvent();
-        }
+        this.addLangEvent();
         return;
     }
 

@@ -26,10 +26,12 @@ export class NavComponent implements OnInit {
 
     ngOnInit(): void {
         let test = this.initialPathname;
-        if (test.includes("-en")) {
+        if (test.includes("en")) {
             this.lang = false;
+            this.langFr = false;
             this.enTranslate();
         }
+
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -60,7 +62,7 @@ export class NavComponent implements OnInit {
     }
 
     private setLocation(): string {
-        let tempo = window.location.protocol + "//" + window.location.host + "/" + this.initialPathname;
+        let tempo = window.location.protocol + "//" + window.location.host + this.initialPathname;
 
         if (tempo.endsWith('/Langage')) {
             tempo = tempo.substring(0, tempo.length - 8);
@@ -122,10 +124,6 @@ export class NavComponent implements OnInit {
             tempo = tempo.substring(0, tempo.length - 5);
         }
 
-
-        while (tempo.endsWith('/')) {
-            tempo = tempo.substring(0, tempo.length - 1);
-        }
         return tempo;
     }
 
@@ -237,7 +235,29 @@ export class NavComponent implements OnInit {
         return this.navIndex;
     }
 
-    public frTranslate(): void {
+    private checkLangFr(): void {
+        let tempo = window.location.protocol + "//" + window.location.host + this.initialPathname;
+        let test = this.initialPathname;
+
+        if (test.includes("en")) {
+            tempo = tempo.substring(0, tempo.length - 3);
+            window.location.replace(tempo);
+        }
+        return;
+    }
+
+    private checkLangEn(): void {
+        let tempo = window.location.protocol + "//" + window.location.host + this.initialPathname;
+        let test = this.initialPathname;
+
+        if (!test.includes("en")) {
+            tempo = tempo + "-en";
+            window.location.replace(tempo);
+        }
+        return;
+    }
+
+    private frTranslate(): void {
         let langageItem = document.getElementById("langageP") as HTMLElement;
         let projectsItem = document.getElementById("projectsP") as HTMLElement;
         let pathwayItem = document.getElementById("pathwayP") as HTMLElement;
@@ -249,10 +269,12 @@ export class NavComponent implements OnInit {
         pathwayItem.innerText = "Parcours";
         profileItem.innerText = "Profil";
         skillsItem.innerText = "Qualités";
+
+        this.checkLangFr();
         return;
     }
 
-    public enTranslate(): void {
+    private enTranslate(): void {
         let langageItem = document.getElementById("langageP") as HTMLElement;
         let projectsItem = document.getElementById("projectsP") as HTMLElement;
         let pathwayItem = document.getElementById("pathwayP") as HTMLElement;
@@ -264,6 +286,8 @@ export class NavComponent implements OnInit {
         pathwayItem.innerText = "Pathway";
         profileItem.innerText = "Profile";
         skillsItem.innerText = "Qualities";
+
+        this.checkLangEn();
         return;
     }
 
@@ -318,7 +342,22 @@ export class NavComponent implements OnInit {
             topNav.style.backgroundColor = "rgb(0, 0, 0, 0)";
             topNav.style.border = "none";
             closeItem.style.minWidth = "90px";
-            
+
+            let supItems = document.getElementsByClassName("supItem") as HTMLCollectionOf<HTMLElement>;
+            let infItems = document.getElementsByClassName("infItem") as HTMLCollectionOf<HTMLElement>;
+
+            for (let i = 0; i < supItems.length; i++) {
+                supItems[i].style.cursor = "url('assets/images/cursor2.png'), auto";
+            }
+            for (let i = 0; i < infItems.length; i++) {
+                infItems[i].style.cursor = "url('assets/images/cursor2.png'), auto";
+            }
+
+            let navImg = document.getElementById("navCloseImg") as HTMLElement;
+
+            navImg.style.marginRight = "10px";
+            navImg.style.marginLeft = "10px";
+
         }
         else {
             nav.style.transitionTimingFunction = "ease-out";
@@ -389,10 +428,10 @@ export class NavComponent implements OnInit {
         let icon = document.getElementsByClassName("itemIcon") as HTMLCollectionOf<HTMLElement>;
         let text = document.getElementsByClassName("itemText") as HTMLCollectionOf<HTMLElement>;
 
-        for(let i = 0; i < icon.length; i++){
+        for (let i = 0; i < icon.length; i++) {
             icon[i].style.display = "none";
         }
-        for(let i = 0; i < text.length; i++){
+        for (let i = 0; i < text.length; i++) {
             text[i].style.display = "block";
         }
 
@@ -403,7 +442,7 @@ export class NavComponent implements OnInit {
         nav.style.color = "white";
         nav.style.border = "none";
         nav.style.textAlign = "center";
-        
+
         if (window.innerWidth > 700) {
             nav.style.backgroundColor = "rgb(50, 50, 50, 0.800)";
         }
@@ -411,11 +450,17 @@ export class NavComponent implements OnInit {
         topNav.style.backgroundColor = "rgb(0, 0, 0, 0)";
         topNav.style.border = "none";
 
-        // let navImg = document.getElementById("navImg") as HTMLElement;
-        // if(this.close){
-        //     navImg.style.transform = "translate(10px)";
-        // }
-        
+
+        let supItems = document.getElementsByClassName("supItem") as HTMLCollectionOf<HTMLElement>;
+        let infItems = document.getElementsByClassName("infItem") as HTMLCollectionOf<HTMLElement>;
+
+        for (let i = 0; i < supItems.length; i++) {
+            supItems[i].style.cursor = "url('../../assets/images/pointer.cur'), pointer";
+        }
+        for (let i = 0; i < infItems.length; i++) {
+            infItems[i].style.cursor = "url('../../assets/images/pointer.cur'), pointer";
+        }
+
         return;
     }
 
@@ -452,11 +497,11 @@ export class NavComponent implements OnInit {
 
         let icon = document.getElementsByClassName("itemIcon") as HTMLCollectionOf<HTMLElement>;
         let text = document.getElementsByClassName("itemText") as HTMLCollectionOf<HTMLElement>;
-        
-        for(let i = 0; i < icon.length; i++){
+
+        for (let i = 0; i < icon.length; i++) {
             icon[i].style.display = "none";
         }
-        for(let i = 0; i < text.length; i++){
+        for (let i = 0; i < text.length; i++) {
             text[i].style.display = "block";
         }
 
@@ -467,9 +512,25 @@ export class NavComponent implements OnInit {
         nav.style.color = "#4DCB4E";
         nav.style.border = "2px solid #F9F9F9";
         nav.style.textAlign = "left";
-        
+
         topNav.style.backgroundColor = "#4F81B4";
         topNav.style.border = "2px solid #F9F9F9";
+
+        let supItems = document.getElementsByClassName("supItem") as HTMLCollectionOf<HTMLElement>;
+        let infItems = document.getElementsByClassName("infItem") as HTMLCollectionOf<HTMLElement>;
+
+        for (let i = 0; i < supItems.length; i++) {
+            supItems[i].style.cursor = "url('../../assets/images/retroCursor.png'), pointer";
+        }
+        for (let i = 0; i < infItems.length; i++) {
+            infItems[i].style.cursor = "url('../../assets/images/retroCursor.png'), pointer";
+        }
+
+        let navImg = document.getElementById("navCloseImg") as HTMLElement;
+        if (this.close) {
+            navImg.style.marginRight = "10px";
+            navImg.style.marginLeft = "10px";
+        }
         return;
     }
 
@@ -499,11 +560,11 @@ export class NavComponent implements OnInit {
 
         let icon = document.getElementsByClassName("itemIcon") as HTMLCollectionOf<HTMLElement>;
         let text = document.getElementsByClassName("itemText") as HTMLCollectionOf<HTMLElement>;
-        
-        for(let i = 0; i < icon.length; i++){
+
+        for (let i = 0; i < icon.length; i++) {
             icon[i].style.display = "block";
         }
-        for(let i = 0; i < text.length; i++){
+        for (let i = 0; i < text.length; i++) {
             text[i].style.display = "none";
         }
 
@@ -514,13 +575,24 @@ export class NavComponent implements OnInit {
         nav.style.color = "white";
         nav.style.border = "none";
         nav.style.textAlign = "center";
-        
+
         if (window.innerWidth > 700) {
             nav.style.backgroundColor = "rgb(50, 50, 50, 0.800)";
         }
-        
+
         topNav.style.backgroundColor = "rgb(0, 0, 0, 0)";
         topNav.style.border = "none";
+
+
+        let supItems = document.getElementsByClassName("supItem") as HTMLCollectionOf<HTMLElement>;
+        let infItems = document.getElementsByClassName("infItem") as HTMLCollectionOf<HTMLElement>;
+
+        for (let i = 0; i < supItems.length; i++) {
+            supItems[i].style.cursor = "url('../../assets/images/pointer.cur'), pointer";
+        }
+        for (let i = 0; i < infItems.length; i++) {
+            infItems[i].style.cursor = "url('../../assets/images/pointer.cur'), pointer";
+        }
 
         return;
     }
