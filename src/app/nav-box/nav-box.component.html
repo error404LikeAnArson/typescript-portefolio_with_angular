@@ -1,0 +1,11 @@
+<div id="container" class="navBox">
+    <div id="col1" class="col">
+        <app-nav (closeEvent)="setClose($event)" (statEvent)="setStat($event)" [langFr]="getLangFr()"></app-nav> <!-- -->
+    </div>
+
+    <div id="col2" class="col">
+        <div id=rightAlign>
+            <app-nav-side [closeNav]="getClose()" [statNav]="getStat()" (langEvent)="setLangFr($event)"> </app-nav-side> <!-- --> 
+        </div>
+    </div>
+</div>

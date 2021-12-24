@@ -1,0 +1,148 @@
+
+//@import "..\assets\_navVariables.sass" 
+
+//
+//    à virer
+$bgColor: rgb(50, 50, 50, 0.800)
+$heightNav: 60px
+//    
+//
+
+//
+//    à virer
+@mixin centerimgH
+    margin-left: auto
+    margin-right: auto
+//
+//
+ 
+#nav
+    display: grid
+    text-align: center
+    position: relative
+    min-width: 90px
+
+.navImg
+    @include centerimgH
+    margin-top: ($heightNav - 50)/2
+
+.supItem
+    height: $heightNav
+    cursor: url("../../assets/images/pointer.cur"), pointer
+
+.infItem
+    height: $heightNav
+    cursor: url("../../assets/images/pointer.cur"), pointer
+
+#supItemDiv
+    display: grid
+    grid-template-rows: $heightNav
+        
+#infItemDiv
+    display: grid
+    grid-template-rows: $heightNav
+
+.itemIcon
+    @include centerimgH
+    display: none
+
+#menuChangeBis
+    margin-left: 20px
+    height: 30px
+    display: none
+
+
+@media screen and ( min-width: 701px )
+    #nav
+        grid-template-columns: 3fr 7fr
+        grid-template-rows: $heightNav
+        background-color: $bgColor
+
+    #supItemDiv
+        grid-template-columns: 1fr 1fr 1fr
+        
+    #infItemDiv
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+        
+    #phantom
+        display: none
+
+@media screen and ( max-width: 700px )  and ( min-width: 446px )   
+    #nav
+        grid-template-columns: 1fr
+        grid-template-rows: $heightNav $heightNav
+        background-color: rgb(0, 0, 0, 0)
+
+    #supItemDiv
+        grid-template-columns: 20vw 20vw 20vw 1fr
+        
+    #infItemDiv
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+
+    .supItem
+        width: 20vw
+
+    .infItem
+        width: 14.28vw
+
+    #phantom
+        display: block
+        max-width: 150px
+
+    #closeItem
+        min-width: 70px
+
+    #changeItem
+        min-width: 60px
+
+    #clearItem
+        min-width: 50px
+
+    @media screen and ( max-width: 500px ) and ( min-width: 446px )    
+        #infItemDiv
+            grid-template-columns: 65px 82px 62px 55px 55px 65px 70px
+
+    @media screen and ( max-width: 600px ) and ( min-width: 501px )
+        #infItemDiv
+            grid-template-columns: 1fr 85px 1fr 1fr 60px 1fr 1fr
+        
+        #frameworkItem
+            min-width: 85px
+
+        #profileItem
+            min-width: 60px
+
+@media screen and ( max-width: 445px )
+    #nav
+        grid-template-columns: 1fr
+        grid-template-rows: $heightNav ($heightNav * 2)
+        background-color: rgb(0, 0, 0, 0)
+
+    #supItemDiv
+        grid-template-columns: 20vw 20vw 20vw 1fr
+        
+    #infItemDiv
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-rows: $heightNav $heightNav
+        
+    .supItem
+        width: 20vw
+
+    #phantom
+        display: block
+        max-width: 150px
+
+    #closeItem
+        min-width: 70px
+
+    #changeItem
+        min-width: 60px
+
+    #clearItem
+        min-width: 50px
+
+
+
+#menuChangeT
+    display: none
+       

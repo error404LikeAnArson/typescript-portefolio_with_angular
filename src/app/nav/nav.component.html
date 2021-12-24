@@ -1,0 +1,49 @@
+<nav id="nav">
+    <div id="supItemDiv">
+        <div id="topNav" class="navButton supItem">
+            <div id="closeItem"(click)="navClick(0)">
+                <img class="navImg" src="../assets/images/menu.png" alt="nav">
+            </div>
+            <div id="menuChangeT" (click)="navClick(1)">
+                <img id="menuChangeBis" src="../assets/images/menu+.png" alt="change form">
+            </div>
+        </div>
+        <div (click)="navClick(1)" id="changeItem" class="navItems supItem"><img class="navImg"
+                src="../assets/images/pIntero.png" alt="change form"></div>
+        <div (click)="navClick(2)" id="clearItem" class="navItems supItem">
+            <p class="itemText">Clear</p>
+            <img class="itemIcon" src="../assets/images/clear.png" alt="clear">
+        </div>
+        <div id="phantom" class="supItem"></div>
+    </div> 
+    <div id="infItemDiv">
+        <div (click)="navClick(3)" id="langageItem" class="navItems infItem">
+            <p class="itemText" id="langageP">Langage</p>
+            <img class="itemIcon" src="../assets/images/lang.png" alt="langage">
+        </div>
+        <div (click)="navClick(4)" id="frameworkItem" class="navItems infItem">
+            <p class="itemText">Framework</p>
+            <img class="itemIcon" src="../assets/images/framework.png" alt="framework">
+        </div>
+        <div (click)="navClick(5)" id="projectsItem" class="navItems infItem">
+            <p class="itemText" id="projectsP">Projets</p>
+            <img class="itemIcon" src="../assets/images/projects.png" alt="projects">
+        </div>
+        <div (click)="navClick(6)" id="pathwayItem" class="navItems infItem">
+            <p class="itemText" id="pathwayP">Parcours</p>
+            <img class="itemIcon" src="../assets/images/pathway.png" alt="pathway">
+        </div>
+        <div (click)="navClick(7)" id="profileItem" class="navItems infItem">
+            <p class="itemText" id="profileP">Profil</p>
+            <img class="itemIcon" src="../assets/images/profile.png" alt="profile">
+        </div>
+        <div (click)="navClick(8)" id="skillsItem" class="navItems infItem">
+            <p class="itemText" id="skillsP">Qualités</p>
+            <img class="itemIcon" src="../assets/images/qualities.png" alt="qualities">
+        </div>
+        <div (click)="navClick(9)" id="sandboxItem" class="navItems infItem">
+            <p class="itemText">Sandbox</p>
+            <img class="itemIcon" src="../assets/images/sandbox.png" alt="sandbox">
+        </div>
+    </div>
+</nav>

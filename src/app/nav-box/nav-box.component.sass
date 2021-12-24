@@ -1,0 +1,73 @@
+
+//@import "..\assets\_navVariables.sass" 
+
+//
+//    à virer
+$bgColor: rgb(50, 50, 50, 0.800)
+$heightNav: 60px
+//    
+//
+    
+#container
+    display: grid
+    grid-template-columns: 6.5fr 1fr
+    grid-template-rows: 1fr
+    height: $heightNav
+
+@media screen and ( max-width: 700px ) 
+    #container
+        grid-template-columns: 2fr 1fr
+        grid-template-rows: 1fr
+        height: ($heightNav * 2)
+        background-color: $bgColor
+
+    #col1
+        grid-column-start: 1
+        grid-column-end: 3
+        grid-row-start: 1
+        grid-row-end: 3
+
+    #col2
+        grid-column-start: 2
+        grid-column-end: 3
+        grid-row-start: 1
+        grid-row-end: 2
+        display: grid
+        height: $heightNav
+
+    #rightAlign
+        max-width: 150px
+
+
+    @media screen and ( min-width: 451px )
+        #col2
+            grid-template-columns: 1fr 150px
+
+        #rightAlign
+            grid-column-start: 2
+            grid-column-end: 3
+            
+
+    @media screen and ( max-width: 450px )
+        #col2
+            grid-template-columns: 1fr
+
+        #rightAlign
+            grid-column-start: 1
+            grid-column-end: 2
+
+@media screen and ( min-width: 701px )
+    #container
+        background-color: rgb(0, 0, 0, 0)
+
+    #col2
+        display: grid
+        grid-template-columns: 1fr
+
+    #rightAlign
+        grid-column-start: 1
+        grid-column-end: 2
+
+@media screen and ( max-width: 445px )
+    #container
+        height: ($heightNav * 3)
