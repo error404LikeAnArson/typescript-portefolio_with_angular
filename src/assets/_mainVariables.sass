@@ -1,0 +1,67 @@
+
+$bgColor: rgba(76, 0, 0, 0.80)
+$bgAccent: #5f0000
+$borderR: 50px
+$borderRInner: 20px
+$containerMarginTopBot: 5%
+$containerMarginLefRig: 10%
+$titlePaddingTop: 3%
+$titlePaddingLeft: 20px
+$contentPaddindLeft: 30px
+$contentPaddingBottom: $borderR
+$contentPaddingInner: 6%
+
+$containerMarginLefRigTel: 5%
+$contentPaddingTopTel: 10px
+$fontColorPrim: white
+$photoTransate: 15px
+
+@mixin containerSetUp
+    background-color: $bgColor
+    margin-top: $containerMarginTopBot
+    margin-bottom: $containerMarginTopBot
+    margin-left: $containerMarginLefRig
+    margin-right: $containerMarginLefRig
+    border-radius: $borderR
+    padding-right: $contentPaddindLeft
+    padding-left: $contentPaddindLeft
+    padding-bottom: $contentPaddingBottom
+    @media screen and ( max-width: 700px )
+        margin-left: $containerMarginLefRigTel
+        margin-right: $containerMarginLefRigTel
+        padding-top: $contentPaddingTopTel
+        padding-left: ($contentPaddindLeft/2)
+
+@mixin titleSetUp
+    padding-top: $titlePaddingTop
+    margin-left: $borderR
+
+@mixin centerimgH
+    margin-left: auto
+    margin-right: auto
+
+    
+@mixin shadow
+    .shadow
+        text-shadow: 0 2px 2px #000000
+        
+@mixin alinea
+    .alinea
+        padding-left: 20px
+
+@mixin shadow
+    .shadow
+        text-shadow: 0 2px 2px #000000
+
+@mixin italic
+    .toIta
+        font-style: italic
+
+@mixin boldAndline
+    .toBoldAndLine
+        font-weight: bolder
+        text-decoration: underline
+
+@mixin alinea
+    .alinea
+        padding-left: 20px
