@@ -1,0 +1,186 @@
+
+//@import "../assets/_mainVariables" 
+
+//
+//
+//    à virer
+$bgColor: rgba(76, 0, 0, 0.80)
+$bgAccent: #5f0000
+$borderR: 50px
+$borderRInner: 20px
+$containerMarginTopBot: 5%
+$containerMarginLefRig: 10%
+$titlePaddingTop: 3%
+$titlePaddingLeft: 20px
+$contentPaddindLeft: 30px
+$contentPaddingBottom: $borderR
+$contentPaddingInner: 6%
+
+$containerMarginLefRigTel: 5%
+$contentPaddingTopTel: 10px
+
+@mixin containerSetUp
+    background-color: $bgColor
+    margin-top: $containerMarginTopBot
+    margin-bottom: $containerMarginTopBot
+    margin-left: $containerMarginLefRig
+    margin-right: $containerMarginLefRig
+    border-radius: $borderR
+    padding-left: $contentPaddindLeft
+    padding-bottom: $contentPaddingBottom
+    @media screen and ( max-width: 700px )
+        margin-left: $containerMarginLefRigTel
+        margin-right: $containerMarginLefRigTel
+        padding-top: $contentPaddingTopTel
+        padding-left: ($contentPaddindLeft/2)
+
+@mixin titleSetUp
+    padding-top: $titlePaddingTop
+    margin-left: $borderR
+//    
+//
+//
+
+@mixin transform($transforms) 
+     -webkit-transform: $transforms
+     -moz-transform: $transforms
+     -ms-transform: $transforms
+     transform: $transforms  
+
+@mixin keyframes($animationName) 
+  @-webkit-keyframes #{$animationName} 
+    @content
+  
+  @-moz-keyframes #{$animationName} 
+    @content
+  
+  @-o-keyframes #{$animationName} 
+    @content
+  
+  @keyframes #{$animationName} 
+    @content  
+
+@mixin animate($name, $duration, $iteration, $direction) 
+  -webkit-animation-duration: $duration
+     -moz-animation-duration: $duration
+       -o-animation-duration: $duration
+          animation-duration: $duration
+  -webkit-animation-iteration-count: $iteration
+     -moz-animation-iteration-count: $iteration
+       -o-animation-iteration-count: $iteration
+          animation-iteration-count: $iteration
+  -webkit-animation-name: $name
+     -moz-animation-name: $name
+       -o-animation-name: $name
+          animation-name: $name
+  -webkit-animation-direction: $direction
+     -moz-animation-direction: $direction
+       -o-animation-direction: $direction
+          animation-direction: $direction
+
+@mixin filter($filter-type,$filter-amount)
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})')
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})')
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})')
+  -o-filter: $filter-type+unquote('(#{$filter-amount})')
+  filter: $filter-type+unquote('(#{$filter-amount})')
+
+//
+//    à virer
+@mixin centerimgH
+    margin-left: auto
+    margin-right: auto
+
+@mixin shadow
+    .shadow
+        text-shadow: 0 2px 2px #000000
+
+@mixin italic
+    .toIta
+        font-style: italic
+
+@mixin boldAndline
+    .toBoldAndLine
+        font-weight: bolder
+        text-decoration: underline
+
+@mixin alinea
+    .alinea
+        padding-left: 20px
+//
+//
+
+#container
+    @include containerSetUp
+    padding-right: $contentPaddindLeft
+
+h3
+    @include titleSetUp
+
+li
+    padding-top: 1em
+    padding-bottom: 1em
+    padding-left: 1em
+    background-color: $bgAccent
+    border: ridge 2px rgb(138, 138, 138)
+    border-radius: $borderRInner 0 0 $borderRInner
+    cursor: url("../../assets/images/pointer.cur"), pointer
+
+li:hover
+    animation: bgChange 
+    animation-timing-function: ease-in-out
+    animation-fill-mode: forwards
+    animation-duration: 1s 
+
+@keyframes bgChange
+    0%
+        background-color: $bgAccent
+    5%
+        background-image: linear-gradient(to right, rgb(177, 0, 0),     $bgAccent,    $bgAccent,        $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,        $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    10%
+        background-image: linear-gradient(to right, rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    15%
+        background-image: linear-gradient(to right, rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent,          $bgAccent,         $bgAccent,      $bgAccent,          $bgAccent,        $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    20%
+        background-image: linear-gradient(to right, rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0),    $bgAccent,      $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    25%
+        background-image: linear-gradient(to right, rgb(177, 0, 0),  rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent,        $bgAccent,          $bgAccent,       $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    30%
+        background-image: linear-gradient(to right, $bgAccent,        rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    35%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      rgb(177, 0, 0),  rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0),   $bgAccent,       $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    40%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,         rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent,          $bgAccent,          $bgAccent,          $bgAccent)
+    45%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,       rgb(177, 0, 0),  rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent,        $bgAccent,          $bgAccent)
+    50%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,       $bgAccent,         rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent,          $bgAccent)
+    55%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          rgb(177, 0, 0),  rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), $bgAccent)
+    60%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,         $bgAccent,         rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0))
+    65%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0))
+    70%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,         rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0))
+    75%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,         $bgAccent,        $bgAccent,     rgb(177, 0, 0), rgb(177, 0, 0))
+    80%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,       $bgAccent,          $bgAccent,     rgb(177, 0, 0), rgb(177, 0, 0))
+    85%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,         rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0))
+    90%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0))
+    100%
+        background-image: linear-gradient(to right, $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      $bgAccent,          $bgAccent,          $bgAccent,      rgb(177, 0, 0),  rgb(177, 0, 0), rgb(177, 0, 0), rgb(177, 0, 0))
+
+@include shadow
+ 
+@include italic
+
+@include boldAndline
+
+@include alinea
+
+ul
+    list-style-image: url("../../assets/images/puce.png") 

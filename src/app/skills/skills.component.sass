@@ -1,0 +1,173 @@
+
+//@import "../assets/_mainVariables" 
+
+//
+//
+//    à virer
+$bgColor: rgba(76, 0, 0, 0.80)
+$bgAccent: #5f0000
+$borderR: 50px
+$borderRInner: 20px
+$containerMarginTopBot: 5%
+$containerMarginLefRig: 10%
+$titlePaddingTop: 3%
+$titlePaddingLeft: 20px
+$contentPaddindLeft: 30px
+$contentPaddingBottom: $borderR
+$contentPaddingInner: 6%
+
+$containerMarginLefRigTel: 5%
+$contentPaddingTopTel: 10px
+
+@mixin containerSetUp
+    background-color: $bgColor
+    margin-top: $containerMarginTopBot
+    margin-bottom: $containerMarginTopBot
+    margin-left: $containerMarginLefRig
+    margin-right: $containerMarginLefRig
+    border-radius: $borderR
+    padding-left: $contentPaddindLeft
+    padding-bottom: $contentPaddingBottom
+    @media screen and ( max-width: 700px )
+        margin-left: $containerMarginLefRigTel
+        margin-right: $containerMarginLefRigTel
+        padding-top: $contentPaddingTopTel
+        padding-left: ($contentPaddindLeft/2)
+
+@mixin titleSetUp
+    padding-top: $titlePaddingTop
+    margin-left: $borderR
+//    
+//
+//
+
+//
+//    à virer
+@mixin centerimgH
+    margin-left: auto
+    margin-right: auto
+
+@mixin shadow
+    .shadow
+        text-shadow: 0 2px 2px #000000
+
+
+@mixin alinea
+    .alinea
+        padding-left: 20px
+//
+//
+
+#container
+    @include containerSetUp
+    padding-right: $contentPaddindLeft
+
+h3
+    @include titleSetUp
+
+#skillsDiv
+    display: grid
+
+#skillGlobal
+    grid-column-start: 1
+    grid-column-end: 2
+    grid-row-start: 1
+    grid-row-end: 2
+
+#globalDiv
+    display: grid
+    margin-left: 5%
+
+#otherSkill
+    display: grid
+
+#hobby
+    grid-column-start: 1
+    grid-column-end: 3
+    grid-row-start: 2
+    grid-row-end: 3    
+    
+#hobbyDiv    
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: 1fr
+
+.image
+    @include centerimgH 
+    
+.otherColumn
+    display: grid
+    grid-template-columns: 1fr 4fr
+    grid-template-rows: 1fr
+
+#qualityDiv
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr
+
+.s3Li
+    list-style: none
+    padding-bottom: 5%
+
+.hobbies
+    margin-left: 35%
+
+.qualityPart
+    background-color: $bgAccent
+    border-radius: $borderRInner
+    border: groove 2px $bgAccent
+    padding: 6%
+    width: fit-content
+    margin-top: auto
+    margin-bottom: auto
+
+@include shadow
+
+@include alinea
+
+    
+@media screen and ( min-width: 901px )
+    #skillsDiv
+        grid-template-columns: 1fr
+        grid-template-rows: 4fr 2.5fr
+
+    #globalDiv
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr
+
+    #otherSkill
+        grid-template-columns: 1fr
+        grid-template-rows: auto auto
+
+
+@media screen and ( max-width: 900px ) and ( min-width: 481px )
+    #skillsDiv
+        grid-template-columns: 1fr
+        grid-template-rows: 5fr 2fr
+
+    #globalDiv
+        grid-template-columns: 1fr 
+        grid-template-rows: 1fr 1fr
+
+    #otherSkill
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr
+
+@media screen and ( max-width: 480px )
+    #skillsDiv
+        grid-template-columns: 1fr
+        grid-template-rows: auto auto
+
+    #globalDiv
+        grid-template-columns: 1fr 
+        grid-template-rows: 1fr 2fr
+
+    #otherSkill
+        grid-template-columns: 1fr
+        grid-template-rows: auto auto
+        margin-left: 10%
+
+    .alinea2
+        padding-left: 20px
+        
+    
