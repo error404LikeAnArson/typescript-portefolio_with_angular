@@ -1,0 +1,160 @@
+// @import "../assets/_mainVariables" 
+// @import "../assets/_globalVariables"
+// @import "../assets/_navVariables"
+
+//
+//
+//    à virer
+$bgColor: rgba(76, 0, 0, 0.80)
+$bgAccent: #5f0000
+$borderR: 50px
+$borderRInner: 20px
+$containerMarginTopBot: 5%
+$containerMarginLefRig: 10%
+$titlePaddingTop: 3%
+$titlePaddingLeft: 20px
+$contentPaddindLeft: 30px
+$contentPaddingBottom: $borderR
+$contentPaddingInner: 6%
+
+$containerMarginLefRigTel: 5%
+$contentPaddingTopTel: 10px
+
+@mixin containerSetUp
+    background-color: $bgColor
+    margin-top: $containerMarginTopBot
+    margin-bottom: $containerMarginTopBot
+    margin-left: $containerMarginLefRig
+    margin-right: $containerMarginLefRig
+    border-radius: $borderR
+    padding-right: $contentPaddindLeft
+    padding-left: $contentPaddindLeft
+    padding-bottom: $contentPaddingBottom
+    @media screen and ( max-width: 700px )
+        margin-left: $containerMarginLefRigTel
+        margin-right: $containerMarginLefRigTel
+        padding-top: $contentPaddingTopTel
+        padding-left: ($contentPaddindLeft/2)
+
+@mixin titleSetUp
+    padding-top: $titlePaddingTop
+    margin-left: $borderR
+//    
+//
+
+
+//
+//    à virer
+$photoTransate: 15px
+
+@mixin centerimgH
+    margin-left: auto
+    margin-right: auto
+
+@mixin shadow
+    .shadow
+        text-shadow: 0 2px 2px #000000
+        
+@mixin alinea
+    .alinea
+        padding-left: 20px
+//
+//
+
+$fontColorPrim: white
+
+@mixin transform($transforms) 
+     -webkit-transform: $transforms
+     -moz-transform: $transforms
+     -ms-transform: $transforms
+     transform: $transforms  
+
+//
+
+ 
+#container
+    @include containerSetUp
+    padding-right: $contentPaddindLeft * 2
+
+h3
+    @include titleSetUp
+
+.pathLi
+    display: grid
+    grid-template-columns: 1fr 2fr
+    // grid-template-columns: 2fr 1fr 6fr
+    grid-template-rows: 1fr
+
+.liContent
+    border-left: 5px solid white
+
+.liContent::before
+    content: ''
+    position: absolute
+    width: 10px
+    height: 10px
+    background-color: $fontColorPrim
+    border: 5px outset rgb(197, 79, 0)
+    outline: 5px solid rgb(192, 79, 0)
+    border-radius: 50%
+    z-index: 10
+    @include transform(translateX(-12px) translateY(52px))
+    
+
+.content
+    padding: 4%
+    padding-top: 8%
+    padding-bottom: 8%
+    
+.contentRight
+    position: relative
+    margin-top: 0
+    margin-bottom: 0
+    margin-left: 10%
+    margin-right: 2%
+    background-color: $bgAccent
+    border-bottom: 1px solid transparent
+    border-image: radial-gradient(white, $bgAccent)
+    border-image-slice: 1
+    z-index: 3
+
+.contentLeft
+    text-align: right
+    margin-top: 0
+    margin-bottom: 0
+    margin-right: 20%
+    
+.expDate
+    margin-left: 1%    
+
+.formDate
+    margin-left: 30%
+
+.pathLi:hover
+    .content
+        @include transform(scale(1.1))
+    .contentRight
+        border-radius: $borderRInner
+        border: 2px dashed rgba(255, 255, 255, 0.514)
+        z-index: 5
+    .contentLeft
+        border-radius: $borderRInner
+        background-color: $bgAccent
+
+
+.contentTop
+    border-radius: $borderRInner $borderRInner 0 0
+
+.contentBottom
+    border-bottom: none
+    border-radius: 0 0 $borderRInner $borderRInner
+
+@include shadow
+
+@media screen and ( max-width: 450px )
+    .formDate
+        margin-left: 0
+
+    
+
+    

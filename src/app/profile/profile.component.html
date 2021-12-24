@@ -1,0 +1,47 @@
+<div id="container" class="block">
+    <h3 id="title1">PROFIL</h3>
+
+    <div id="profileDiv">
+        <div id="profilPhoto">
+            <img id="photo" class="picture" src="../assets/images/photo.png" alt="Départ G." (click)="gifOrImg(false)">
+
+            <img id="photo2" class="picture" src="../assets/images/photo.png" alt="Départ G.">
+
+            <img id="gif" class="picture" src="../assets/images/photo.gif" alt="Départ G." (click)="gifOrImg(true)">
+        </div>
+
+        <div id="profilTitle">
+            <div id="h1Div">
+                <h1>DÉPART <br>GWENAËLLE</h1>
+            </div>
+            <div id="h2Div">
+                <h2 id="title2">Développeur Web</h2>
+            </div>
+        </div>
+
+        <div id="profilButton">
+            <div class="profilB">
+                <button id=gitB class="button" (click)="gitPage()">Github</button>
+            </div>
+            <div class="profilB">
+                <button id="pdfB" class="button" (click)="PDF()">PDF</button>
+            </div>
+        </div>
+
+        <div id="profilContact">
+            <h3>CONTACTS</h3>
+
+            <div id="contColumn">
+                <div class="contRow">
+                    <img class="contIcon" src="../assets/images/mail.png" alt="e-mail">
+                    <p class="contP shadow">gwenaelle.depart@orange.fr</p>
+                </div>
+
+                <div class="contRow">
+                    <img class="contIcon" src="../assets/images/star.png" alt="age">
+                    <p class="contP shadow" id="age">1996 <span class="alinea"></span> 25 ans</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

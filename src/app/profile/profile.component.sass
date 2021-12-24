@@ -1,0 +1,363 @@
+
+//@import "../assets/_mainVariables" 
+
+//
+//
+//    à virer
+$bgColor: rgba(76, 0, 0, 0.80)
+$bgAccent: #5f0000
+$borderR: 50px
+$borderRInner: 20px
+$containerMarginTopBot: 5%
+$containerMarginLefRig: 10%
+$titlePaddingTop: 3%
+$titlePaddingLeft: 20px
+$contentPaddindLeft: 30px
+$contentPaddingBottom: $borderR
+$contentPaddingInner: 6%
+
+$containerMarginLefRigTel: 5%
+$contentPaddingTopTel: 10px
+
+@mixin containerSetUp
+    background-color: $bgColor
+    margin-top: $containerMarginTopBot
+    margin-bottom: $containerMarginTopBot
+    margin-left: $containerMarginLefRig
+    margin-right: $containerMarginLefRig
+    border-radius: $borderR
+    padding-right: $contentPaddindLeft
+    padding-left: $contentPaddindLeft
+    padding-bottom: $contentPaddingBottom
+    @media screen and ( max-width: 700px )
+        margin-left: $containerMarginLefRigTel
+        margin-right: $containerMarginLefRigTel
+        padding-top: $contentPaddingTopTel
+        padding-left: ($contentPaddindLeft/2)
+
+@mixin titleSetUp
+    padding-top: $titlePaddingTop
+    margin-left: $borderR
+//    
+//
+//
+
+//
+//    à virer
+$photoTransate: 15px
+
+@mixin centerimgH
+    margin-left: auto
+    margin-right: auto
+
+@mixin button
+    .button   
+        @includecenterimgH
+        width: 70px
+        height: 40px
+        border-radius: 10px
+        color: white
+        background-color: rgb(141, 0, 0)
+        border: rgb(82, 0, 0) solid 4px
+        box-shadow: 2px 2px 2px 2px black
+        cursor: url("../../assets/images/pointer.cur"), pointer
+
+    .button:hover
+        color: black
+        background-color: rgb(219, 0, 0)
+        border: rgb(133, 1, 1) solid 4px
+        box-shadow: 2px 2px 2px 2px black
+    
+    .button:active
+        box-shadow: none
+        @include transform(translateX(2px) translateY(2px))
+        
+            
+
+@mixin shadow
+    .shadow
+        text-shadow: 0 2px 2px #000000
+
+@mixin alinea
+    .alinea
+        padding-left: 20px
+
+@mixin transform($transforms) 
+     -webkit-transform: $transforms
+     -moz-transform: $transforms
+     -ms-transform: $transforms
+     transform: $transforms  
+
+@mixin keyframes($animationName) 
+  @-webkit-keyframes #{$animationName} 
+    @content
+  
+  @-moz-keyframes #{$animationName} 
+    @content
+  
+  @-o-keyframes #{$animationName} 
+    @content
+  
+  @keyframes #{$animationName} 
+    @content  
+
+@mixin animate($name, $duration, $iteration, $direction) 
+  -webkit-animation-duration: $duration
+     -moz-animation-duration: $duration
+       -o-animation-duration: $duration
+          animation-duration: $duration
+  -webkit-animation-iteration-count: $iteration
+     -moz-animation-iteration-count: $iteration
+       -o-animation-iteration-count: $iteration
+          animation-iteration-count: $iteration
+  -webkit-animation-name: $name
+     -moz-animation-name: $name
+       -o-animation-name: $name
+          animation-name: $name
+  -webkit-animation-direction: $direction
+     -moz-animation-direction: $direction
+       -o-animation-direction: $direction
+          animation-direction: $direction
+
+@mixin filter($filter-type,$filter-amount)
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})')
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})')
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})')
+  -o-filter: $filter-type+unquote('(#{$filter-amount})')
+  filter: $filter-type+unquote('(#{$filter-amount})')
+//
+//
+
+#container
+    @include containerSetUp
+    padding-right: $contentPaddindLeft
+
+h3
+    @include titleSetUp
+
+#profileDiv
+    display: grid
+
+#profilButton
+    display: grid
+    grid-template-columns: 1fr 1fr
+
+#profilContact
+    background-color: $bgAccent
+    border-radius: $borderRInner
+    border: groove 2px $bgAccent
+    padding-right: 2%
+    padding-left: 2%
+    width: fit-content
+
+h1
+    background-color: $bgAccent
+    border-radius: $borderRInner
+    border: groove 2px $bgAccent
+    padding: 2%
+    width: fit-content
+
+h2
+    background-color: $bgAccent
+    border-radius: $borderRInner
+    border: groove 2px $bgAccent
+    padding: 2%
+    width: fit-content
+    margin-top: 20%
+
+.contIcon
+    @include centerimgH
+
+.picture
+    border: outset
+    @include transform(translate($photoTransate) rotate(-2deg))
+    position: absolute
+
+#photo
+    z-index: 10   
+    cursor: url("../../assets/images/pointer.cur"), pointer
+
+#photo2
+    z-index: 8
+    box-shadow: 2px 3px 10px 5px #00000056
+
+#gif
+    z-index: 12
+    @include transform(transalate($photoTransate) rotate(-2deg))
+    display: none
+
+.contRow
+    display: grid
+    grid-template-columns: 1fr 5fr
+    grid-template-rows: 1fr
+    margin-bottom: 3%
+
+@include shadow
+
+@include button
+
+@include alinea
+
+.button
+    margin-top: 3%
+
+.contP
+    padding-left: 5%
+
+@media screen and ( min-width: 1001px )
+    h1
+        margin-left: 25vh
+
+    .picture
+        height: 20vh
+
+    #profileDiv
+        grid-template-columns: 1fr 2fr 2.5fr
+        grid-template-rows: 1fr 2fr 2fr 2fr
+
+    #profilPhoto
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 2
+        grid-row-end: 3
+
+    #profilTitle
+        grid-column-start: 1
+        grid-column-end: 3
+        grid-row-start: 2
+        grid-row-end: 5
+
+    #profilContact
+        grid-column-start: 3
+        grid-column-end: 4
+        grid-row-start: 2
+        grid-row-end: 4
+
+    #profilButton
+        grid-column-start: 3
+        grid-column-end: 4
+        grid-row-start: 4
+        grid-row-end: 5
+
+@media screen and ( max-width: 1000px ) and ( min-width: 561px )
+    .picture
+        max-height: 15vw
+
+    #profileDiv
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr 1fr 2fr 1fr
+
+    #profilPhoto
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 1
+        grid-row-end: 2
+
+    #profilTitle
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 3
+        grid-row-end: 5
+
+    #profilContact
+        grid-column-start: 2
+        grid-column-end: 3
+        grid-row-start: 2
+        grid-row-end: 4
+
+    #profilButton
+        grid-column-start: 2
+        grid-column-end: 3
+        grid-row-start: 4
+        grid-row-end: 5
+
+@media screen and ( max-width: 560px )
+    .picture
+        max-height: 15vh
+
+    #profileDiv
+        grid-template-columns: 1fr 
+        grid-template-rows: 18vh auto auto auto
+
+    #profilPhoto
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 1
+        grid-row-end: 2
+
+    #profilTitle
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 2
+        grid-row-end: 3
+
+    #profilContact
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 3
+        grid-row-end: 4
+
+    #profilButton
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 4
+        grid-row-end: 5
+
+    .button
+        margin-left: 25%
+
+@media screen and ( max-width: 700px )
+    #photo
+        display: none    
+      
+
+#photo:hover
+    animation: glitch 0.6s infinite
+    opacity: 0.5
+
+@keyframes glitch 
+    from 
+    3%  
+        @include transform(translate(5px, 0px) rotate(-2deg))
+    8%  
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    22%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    25%
+        @include transform(translate(-10px, 0px) rotate(-2deg))
+    37%  
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    42%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    45%
+        @include transform(translate(20px, 0px) rotate(-2deg))
+    48%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    52%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    55%
+        @include transform(translate(-10px, 0px) rotate(-2deg))
+    65%
+        @include transform(translate(-20px, 0px) rotate(-2deg))
+    67%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    70%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    72%
+        @include transform(translate(10px, 0px) rotate(-2deg))
+    82%
+        @include transform(translate(-20px, 0px) rotate(-2deg))
+    84%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    87%
+        @include transform(translate(0px, 0px) rotate(-2deg))
+    89%
+        @include transform(translate(-25px, 0px) rotate(-2deg))
+    93%
+        @include transform(translate(50px, -20px) rotate(-2deg))
+    97%
+        @include transform(translate(-60px, 0px) rotate(-2deg))
+    99%
+        @include transform(translate(60px, 20px) rotate(-2deg))
+    to
+        @include transform(translate(0px, 0px) rotate(-2deg))
